@@ -1,19 +1,13 @@
-name: sample-workflow
-on: [push]
-jobs:
- explore-first-github-workflow:
-  runs-on: ubuntu-latest
-  steps:
-   - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
-   - run: echo "this job is now running on a ${{ runner.os }} server hosted by GitHub!"
-   - run: echo "The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-   - name: Check out repository code
-     uses: actions/checkout@v2
-   - run: echo "The ${{ github.repository }} repository has been cloned to the runner."
-   - run: echo " The workflow is now ready to test your code on the runner."
-   - name: List files in the repository
-   run: |
-     ls ${{ github.workspace }}
-   - run: echo "This job's status is ${{ job.status }}."
+- name: Cache
+  uses: actions/cache@v3.2.2
+  with:
+    # A list of files, directories, and wildcard patterns to cache and restore
+    path: 
+    # An explicit key for restoring and saving the cache
+    key: 
+    # An ordered list of keys to use for restoring stale cache if no cache hit occurred for key. Note `cache-hit` returns false in this case.
+    restore-keys: # optional
+    # The chunk size used to split up large files during upload, in bytes
+    upload-chunk-size: # optional
    
   
